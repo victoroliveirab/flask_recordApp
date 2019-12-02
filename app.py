@@ -5,6 +5,9 @@ from flask import Flask, request, render_template, url_for, redirect, send_file
 #from ffmpy import FFmpeg
 import ffmpeg
 
+#pip install -r requirements.txt
+#ae
+
 
 app = Flask(__name__)
 
