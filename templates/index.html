@@ -1,0 +1,35 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #start_stop {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gravar Novo Audio</h1>
+    <div id="request_mic">
+        <button id="enable_mic">
+            Habilitar Microfone
+        </button>
+    </div>
+    <div id="start_stop">
+        <button id="start" disabled>Iniciar Gravação</button>
+        <button id="stop" disabled>Parar Gravação</button>
+        <button id="upload">Salvar Gravação</button>
+    </div>
+    <div id="audio_type">
+        <input type="radio" name="equipment" value="geladeira" checked> Geladeira
+        <input type="radio" name="equipment" value="cafeteira"> Cafeteira
+        <input type="radio" name="equipment" value="cama"> Cama
+        <input type="radio" name="equipment" value="televisao"> Televisão
+    </div>
+    <div id="audio_player"></div>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="{{ url_for('static', filename='recordscript.js')}}"></script>
+</body>
+</html>
