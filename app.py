@@ -34,5 +34,23 @@ def audio_cama():
     print(os.listdir())
     return send_file(f, as_attachment=True)
 
+@app.route("/cafeteira")
+def audio_cafeteira():
+    f = os.path.join(os.getcwd(), "cafeteira.mp3")
+    print(os.listdir())
+    return send_file(f, as_attachment=True)
+
+@app.route("/geladeira")
+def audio_geladeira():
+    f = os.path.join(os.getcwd(), "geladeira.mp3")
+    print(os.listdir())
+    return send_file(f, as_attachment=True)
+
+@app.route("/tv")
+def audio_cama():
+    f = os.path.join(os.getcwd(), "televisao.mp3")
+    print(os.listdir())
+    return send_file(f, as_attachment=True)
+
 if __name__ == "__main__":
     app.run()
