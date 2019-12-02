@@ -29,3 +29,5 @@ def audio_cama():
     if (os.path.isdir(f)):
         return send_file(f, as_attachment=True)
 
+if __name__ == "__main__":
+    app.run()
