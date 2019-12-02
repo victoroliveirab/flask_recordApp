@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from flask import Flask, request, render_template, url_for, redirect, send_file
-import ffmpeg
+from ffmpy import FFmpeg
 
 
 app = Flask(__name__)
@@ -17,9 +17,16 @@ def index():
 def save_to_file():
     f = request.files['data']
     filename = request.values['filename']
-    f.save(os.path.join(os.getcwd(), filename + ".ogg"))
-    command = 'ffmpeg -i {}.ogg -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 {}.mp3'.format(filename, filename)
-    subprocess.call(command, shell=True)
+    ogg = filename + ".ogg"
+    mp3 = filename + ".mp3"
+    f.save(os.path.join(os.getcwd(), ogg))
+    ff = FFmpeg(
+        inputs={ogg: None},
+        outputs={mp3: '-ac 2 -codec:a libmp3lame -b:a 48k -ar 16000'}
+    )
+    #command = 'ffmpeg -i {}.ogg -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 {}.mp3'.format(filename, filename)
+    #subprocess.call(command, shell=True)
+    ff.run()
     return redirect(url_for("index"))
 
 

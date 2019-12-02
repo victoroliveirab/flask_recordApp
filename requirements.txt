@@ -1,5 +1,6 @@
 Click==7.0
 ffmpeg==1.4
+ffmpy==0.2.2
 Flask==1.1.1
 gunicorn==20.0.4
 itsdangerous==1.1.0
