@@ -50,7 +50,7 @@ def audio_geladeira():
     return send_file(f, as_attachment=True)
 
 @app.route("/tv")
-def audio_cama():
+def audio_tv():
     f = os.path.join(os.getcwd(), "televisao.mp3")
     print(os.listdir())
     return send_file(f, as_attachment=True)
