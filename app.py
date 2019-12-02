@@ -26,6 +26,7 @@ def save_to_file():
 @app.route("/cama")
 def audio_cama():
     f = os.path.join(os.getcwd(), "cama.mp3")
+    print(os.listdir())
     return send_file(f, as_attachment=True)
 
 if __name__ == "__main__":
