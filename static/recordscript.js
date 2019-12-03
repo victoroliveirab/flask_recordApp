@@ -22,7 +22,7 @@ enableMicButton.onclick = e => {
     navigator.mediaDevices.getUserMedia({audio: true}).then(_stream => {
         stream = _stream;
         requestMicDiv.style.display = "none";
-        startStopDiv.style.display = "inline-block";
+        startStopDiv.style.display = "grid";
         enableStartButton();
         recorder = new MediaRecorder(stream);
         recorder.ondataavailable = e => {
@@ -51,11 +51,15 @@ uploadButton.onclick = e => {
 
 function enableStartButton() {
     startButton.disabled = false;
+    startButton.style.backgroundColor = '#fedcba';
+    stopButton.style.backgroundColor = '#ccc';
     stopButton.disabled = true;
 }
 
 function enableStopButton() {
     startButton.disabled = true;
+    stopButton.style.backgroundColor = '#fedcba';
+    startButton.style.backgroundColor = '#ccc';
     stopButton.disabled = false;
 }
 
@@ -81,6 +85,6 @@ function saveBlob() {
         processData: false,
         contentType: false
     }).done(function() {
-        audioPlayerDiv.innerHTML = "Audio para " + name + " salvo com sucesso!";
+        audioPlayerDiv.innerHTML = "<center>Audio para " + name + " salvo com sucesso!</center>";
     });
 }

@@ -7,6 +7,7 @@ import ffmpeg
 
 #pip install -r requirements.txt
 #ae
+#https://elements.heroku.com/buildpacks/jonathanong/heroku-buildpack-ffmpeg-latest
 
 
 app = Flask(__name__)
@@ -25,7 +26,7 @@ def save_to_file():
     mp3 = filename + ".mp3"
     f.save(os.path.join(os.getcwd(), ogg))
     #ff = FFmpeg(inputs={ogg: None}, outputs={mp3: '-ac 2 -codec:a libmp3lame -b:a 48k -ar 16000'})
-    command = 'ffmpeg -i {}.ogg -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 {}.mp3'.format(filename, filename)
+    command = 'ffmpeg -y -i {}.ogg -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 {}.mp3'.format(filename, filename)
     subprocess.call(command, shell=True)
     #ff.run()
     return redirect(url_for("index"))

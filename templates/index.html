@@ -3,30 +3,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Espelho Azul - Techinblue</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <style>
-        #start_stop {
-            display: none;
+        .body {
+            position: relative;
+            box-sizing: border-box;
+            background-color: #e5f0fa;
+            font-family: 'Roboto', sans-serif;
         }
+        .title {
+            margin-top:50px;
+            font-size: 32px;
+            text-transform: uppercase;
+        }
+        .title-center {
+            text-align: center;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-right: 5px;
+            padding: 0.5rem 1rem;
+            background-color: #abcdef;
+            padding: 20px;
+            text-align: center;
+            color: #000;
+            text-transform: uppercase;
+        }
+        .btn {
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid rgb(116, 110, 110);
+        }
+        #enable_mic {
+            margin: 0 auto;
+            background-color: #abcdef;
+            width: 160px;
+        }
+        #start_stop {
+            margin: 0 auto;
+            display: none;
+            width: 100%;
+            grid-template-columns: repeat(5, 1fr);
+            column-gap: 5px;
+            justify-items: center;
+        }
+        #start {
+            grid-column: 2/3;
+        }
+        #stop {
+            grid-column: 3/4;
+        }
+        #upload {
+            grid-column: 4/5;
+        }
+        #audio_type_container {
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+            margin-top: 50px;
+        }
+        #audio_type {
+            grid-column: 2/3;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            column-gap: 20px;
+        }
+        .radio_option {
+            clip: rect(1px,1px,1px,1px);
+            position: absolute !important;
+        }
+        .radio_option:checked + label {
+            background-color: #60e5f7;
+        }
+        .controls {
+            display: inline-block;
+            background-color: #fedcba;
+            width: 120px;
+        }
+
     </style>
 </head>
-<body>
-    <h1>Gravar Novo Audio</h1>
+<body class="body">
+    <h1 class="title title-center">Gravar Novo Audio</h1>
     <div id="request_mic">
-        <button id="enable_mic">
+        <div class="btn" id="enable_mic">
             Habilitar Microfone
-        </button>
+        </div>
     </div>
     <div id="start_stop">
-        <button id="start" disabled>Iniciar Gravação</button>
-        <button id="stop" disabled>Parar Gravação</button>
-        <button id="upload">Salvar Gravação</button>
+        <div class="btn controls" id="start" disabled>Iniciar Gravação</div>
+        <div class="btn controls" id="stop" disabled>Parar Gravação</div>
+        <div class="btn controls" id="upload">Salvar Gravação</div>
     </div>
+    <div id="audio_type_container">
     <div id="audio_type">
-        <input type="radio" name="equipment" value="geladeira" checked> Geladeira
-        <input type="radio" name="equipment" value="cafeteira"> Cafeteira
-        <input type="radio" name="equipment" value="cama"> Cama
-        <input type="radio" name="equipment" value="televisao"> Televisão
+        <input id="cafeteira" class="radio_option" type="radio" name="equipment" value="cafeteira"> <label for="cafeteira">Cafeteira</label>
+        <input id="geladeira" class="radio_option" type="radio" name="equipment" value="geladeira" checked> <label for="geladeira">Geladeira</label>
+        <input id="cama" class="radio_option" type="radio" name="equipment" value="cama"> <label for="cama">Cama</label>
+        <input id="televisao" class="radio_option" type="radio" name="equipment" value="televisao"> <label for="televisao">Televisão</label>
+        <input id="luz" class="radio_option" type="radio" name="equipment" value="luz"> <label for="luz">Luz</label>
+        <input id="fogao" class="radio_option" type="radio" name="equipment" value="fogao"> <label for="fogao">Fogão</label> 
+        <input id="microondas" class="radio_option" type="radio" name="equipment" value="microondas"> <label for="microondas">Microondas</label>
+    </div>
     </div>
     <div id="audio_player"></div>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
