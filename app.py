@@ -36,7 +36,7 @@ def save_to_file():
 def audio_cama():
     audio_name = "cama.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
@@ -44,7 +44,7 @@ def audio_cama():
 def audio_cafeteira():
     audio_name = "cafeteira.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
@@ -52,7 +52,7 @@ def audio_cafeteira():
 def audio_geladeira():
     audio_name = "geladeira.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
@@ -60,7 +60,7 @@ def audio_geladeira():
 def audio_tv():
     audio_name = "televisao.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
@@ -68,7 +68,7 @@ def audio_tv():
 def audio_luz():
     audio_name = "luz.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
@@ -76,7 +76,7 @@ def audio_luz():
 def audio_fogao():
     audio_name = "fogao.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
@@ -84,7 +84,7 @@ def audio_fogao():
 def audio_microondas():
     audio_name = "microondas.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    if (not os.path.isdir(f)):
+    if (not os.path.isfile(f)):
         return send_not_available()
     return send_file(f, as_attachment=True)
 
