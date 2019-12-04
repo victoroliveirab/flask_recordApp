@@ -56,5 +56,23 @@ def audio_tv():
     print(os.listdir())
     return send_file(f, as_attachment=True)
 
+@app.route("/luz")
+def audio_luz():
+    f = os.path.join(os.getcwd(), "luz.mp3")
+    print(os.listdir())
+    return send_file(f, as_attachment=True)
+
+@app.route("/fogao")
+def audio_cama():
+    f = os.path.join(os.getcwd(), "fogao.mp3")
+    print(os.listdir())
+    return send_file(f, as_attachment=True)
+
+@app.route("/microondas")
+def audio_cama():
+    f = os.path.join(os.getcwd(), "microondas.mp3")
+    print(os.listdir())
+    return send_file(f, as_attachment=True)
+
 if __name__ == "__main__":
     app.run()
