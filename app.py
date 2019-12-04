@@ -63,7 +63,7 @@ def audio_luz():
     return send_file(f, as_attachment=True)
 
 @app.route("/fogao")
-def audio_cama():
+def audio_fogao():
     f = os.path.join(os.getcwd(), "fogao.mp3")
     print(os.listdir())
     return send_file(f, as_attachment=True)
