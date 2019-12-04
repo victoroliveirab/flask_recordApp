@@ -69,7 +69,7 @@ def audio_cama():
     return send_file(f, as_attachment=True)
 
 @app.route("/microondas")
-def audio_cama():
+def audio_microondas():
     f = os.path.join(os.getcwd(), "microondas.mp3")
     print(os.listdir())
     return send_file(f, as_attachment=True)
