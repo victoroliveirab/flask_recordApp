@@ -34,45 +34,63 @@ def save_to_file():
 
 @app.route("/cama")
 def audio_cama():
-    f = os.path.join(os.getcwd(), "cama.mp3")
+    audio_name = "cama.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
     print(os.listdir())
     return send_file(f, as_attachment=True)
 
 @app.route("/cafeteira")
 def audio_cafeteira():
-    f = os.path.join(os.getcwd(), "cafeteira.mp3")
-    print(os.listdir())
+    audio_name = "cafeteira.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
 
 @app.route("/geladeira")
 def audio_geladeira():
-    f = os.path.join(os.getcwd(), "geladeira.mp3")
-    print(os.listdir())
+    audio_name = "geladeira.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
 
 @app.route("/tv")
 def audio_tv():
-    f = os.path.join(os.getcwd(), "televisao.mp3")
-    print(os.listdir())
+    audio_name = "televisao.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
 
 @app.route("/luz")
 def audio_luz():
-    f = os.path.join(os.getcwd(), "luz.mp3")
-    print(os.listdir())
+    audio_name = "luz.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
 
 @app.route("/fogao")
 def audio_fogao():
-    f = os.path.join(os.getcwd(), "fogao.mp3")
-    print(os.listdir())
+    audio_name = "fogao.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
 
 @app.route("/microondas")
 def audio_microondas():
-    f = os.path.join(os.getcwd(), "microondas.mp3")
-    print(os.listdir())
+    audio_name = "microondas.mp3"
+    f = os.path.join(os.getcwd(), audio_name)
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
+
+
+########## UTILS ##########
+def send_not_available():
+    return send_file(os.path.join(os.getcwd(), "indisponivel.mp3"), as_attachment=True)
 
 if __name__ == "__main__":
     app.run()
