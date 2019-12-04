@@ -36,7 +36,8 @@ def save_to_file():
 def audio_cama():
     audio_name = "cama.mp3"
     f = os.path.join(os.getcwd(), audio_name)
-    print(os.listdir())
+    if (not os.path.isdir(f)):
+        return send_not_available()
     return send_file(f, as_attachment=True)
 
 @app.route("/cafeteira")
